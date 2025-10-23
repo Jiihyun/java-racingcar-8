@@ -27,4 +27,12 @@ class NameTest {
                 .hasMessage(ExceptionMessage.CAR_NAME_OUT_OF_RANGE.getMessage());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"사과1", "사 과", "사+과", "a1", "jii_"})
+    void 잘못된_형식의_자동차_이름이면_예외가_발생한다(String name) {
+        // when & then
+        assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.CAR_NAME_WRONG_FORMAT.getMessage());
+    }
 }
