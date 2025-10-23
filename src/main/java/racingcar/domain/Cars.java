@@ -13,8 +13,13 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateRange(cars);
+        validate(cars);
         this.cars = cars;
+    }
+
+    private void validate(List<Car> cars) {
+        validateRange(cars);
+        validateDuplication(cars);
     }
 
     private void validateRange(List<Car> cars) {
@@ -26,5 +31,17 @@ public class Cars {
 
     private boolean isOutOfRange(int size) {
         return size < MIN_RANGE || size > MAX_RANGE;
+    }
+
+    private void validateDuplication(List<Car> cars) {
+        if (isDuplicated(cars)) {
+            throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_CAR.getMessage());
+        }
+    }
+
+    private boolean isDuplicated(List<Car> cars) {
+        return cars.stream()
+                .distinct()
+                .count() != cars.size();
     }
 }

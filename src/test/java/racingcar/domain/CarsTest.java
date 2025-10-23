@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,6 +22,19 @@ class CarsTest {
         assertThatThrownBy(() -> new Cars(cars))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.CARS_OUT_OF_RANGE.getMessage());
+    }
+
+    @Test
+    void 이름이_동일한_자동차가_중복될시_예외가_발생한다() {
+        // given
+        String name = "nana";
+        Car car1 = createCar(name);
+        Car car2 = createCar(name);
+        List<Car> cars = List.of(car1, car2);
+        // when & then
+        assertThatThrownBy(() -> new Cars(cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.DUPLICATED_CAR.getMessage());
     }
 
     private static Stream<Arguments> provideCars() {

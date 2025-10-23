@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import racingcar.exception.ExceptionMessage;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,5 +46,19 @@ public class Name {
 
     public String getValue() {
         return value;
+    }
+
+    @Override
+    public final boolean equals(final Object o) {
+        if (!(o instanceof final Name name)) {
+            return false;
+        }
+
+        return Objects.equals(getValue(), name.getValue());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getValue());
     }
 }
