@@ -19,6 +19,15 @@ class NameTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"", "   ", "\t", "\n"})
+    void 자동차_이름이_빈_문자열이면_예외가_발생한다(String name) {
+        // when & then
+        assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.EMPTY_CAR_NAME.getMessage());
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"banana", "가나다라마바"})
     void 자동차_이름의_길이가_범위_초과시_예외가_발생한다(String name) {
         // when & then

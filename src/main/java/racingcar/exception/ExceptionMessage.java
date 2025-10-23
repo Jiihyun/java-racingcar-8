@@ -3,6 +3,7 @@ package racingcar.exception;
 public enum ExceptionMessage {
 
     NOT_NUMBER("숫자만 입력 가능합니다."),
+    EMPTY_CAR_NAME("자동차 이름은 빈문자열일 수 없습니다."),
     CAR_NAME_OUT_OF_RANGE("입력 가능한 자동차 이름 길이 범위를 초과하였습니다."),
     CAR_NAME_WRONG_FORMAT("잘못된 자동차 이름 형식입니다."),
     ;

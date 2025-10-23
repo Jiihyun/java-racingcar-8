@@ -24,6 +24,9 @@ public class Name {
     }
 
     private void validateLength(String value) {
+        if (value.isBlank()) {
+            throw new IllegalArgumentException(ExceptionMessage.EMPTY_CAR_NAME.getMessage());
+        }
         if (isOutOfRange(value.length())) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_OUT_OF_RANGE.getMessage());
         }
