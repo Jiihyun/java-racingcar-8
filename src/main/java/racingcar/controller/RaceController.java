@@ -27,17 +27,8 @@ public class RaceController {
     public void run() {
         Cars cars = registerCars();
         Round round = setTotalRound();
-
-        outputView.printResultMessage();
-        while (round.isLeft()) {
-            List<MovementResult> result = cars.move(new RandomMovementStrategy(new ForwordMovementCondition()));
-            round.finish();
-            outputView.printResult(result);
-        }
-
-        Referee referee = new Referee();
-        Winners winners = referee.judge(cars);
-        outputView.printWinner(winners);
+        startRace(round, cars);
+        judge(cars);
     }
 
     private Cars registerCars() {
@@ -52,5 +43,20 @@ public class RaceController {
     private Round setTotalRound() {
         int round = inputView.readRound();
         return new Round(round);
+    }
+
+    private void startRace(Round round, Cars cars) {
+        outputView.printResultMessage();
+        while (round.isLeft()) {
+            List<MovementResult> result = cars.move(new RandomMovementStrategy(new ForwordMovementCondition()));
+            round.finish();
+            outputView.printResult(result);
+        }
+    }
+
+    private void judge(Cars cars) {
+        Referee referee = new Referee();
+        Winners winners = referee.judge(cars);
+        outputView.printWinner(winners);
     }
 }
