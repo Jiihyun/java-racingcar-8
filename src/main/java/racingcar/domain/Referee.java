@@ -13,8 +13,8 @@ public class Referee {
                 .toList());
     }
 
-    private static List<Car> getResult(Cars cars) {
-        int maxPosition = cars.getMaxPosition();
-        return cars.findAllLocatedAt(maxPosition);
+    private List<Car> getResult(Cars cars) {
+        Car fastestCar = cars.getFastestCar();
+        return cars.findAllTiedWith(fastestCar);
     }
 }

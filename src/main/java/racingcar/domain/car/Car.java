@@ -22,16 +22,16 @@ public class Car {
         return new CarResult(name.getValue(), position);
     }
 
-    public boolean hasSamePositionWith(int position) {
-        return this.position == position;
+    public boolean hasSamePositionWith(Car other) {
+        return this.position == other.position;
+    }
+
+    public boolean isAheadOf(Car other) {
+        return this.position > other.position;
     }
 
     public String getName() {
         return name.getValue();
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     @Override

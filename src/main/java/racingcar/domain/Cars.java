@@ -52,17 +52,19 @@ public class Cars {
         return new RoundResult(roundResult);
     }
 
-    public int getMaxPosition() {
-        int max = 0;
+    public Car getFastestCar() {
+        Car fastestCar = cars.getFirst();
         for (Car car : cars) {
-            max = Math.max(max, car.getPosition());
+            if (car.isAheadOf(fastestCar)) {
+                fastestCar = car;
+            }
         }
-        return max;
+        return fastestCar;
     }
 
-    public List<Car> findAllLocatedAt(int position) {
+    public List<Car> findAllTiedWith(Car fastestCar) {
         return cars.stream()
-                .filter(car -> car.hasSamePositionWith(position))
+                .filter(car -> car.hasSamePositionWith(fastestCar))
                 .toList();
     }
 }
