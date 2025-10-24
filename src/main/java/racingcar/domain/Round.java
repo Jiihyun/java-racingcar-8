@@ -24,15 +24,12 @@ public class Round {
         return value < MIN_RANGE || value > MAX_RANGE;
     }
 
-    public void finish() {
-        if (isLeft()) {
-            value -= 1;
-        }
-        throw new IllegalArgumentException(ExceptionMessage.ROUND_OUT_OF_RANGE.getMessage());
+    public boolean isLeft() {
+        return value >= MIN_RANGE;
     }
 
-    private boolean isLeft() {
-        return value >= MIN_RANGE;
+    public void finish() {
+        value -= 1;
     }
 
     public int getValue() {
