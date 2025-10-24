@@ -19,7 +19,7 @@ public class Car {
         if (movementStrategy.canMove()) {
             this.position += 1;
         }
-        return new CarResult(name.getValue(), position);
+        return new CarResult(name.value(), position);
     }
 
     public boolean hasSamePositionWith(Car other) {
@@ -31,7 +31,7 @@ public class Car {
     }
 
     public String getName() {
-        return name.getValue();
+        return name.value();
     }
 
     @Override

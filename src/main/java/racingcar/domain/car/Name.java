@@ -2,21 +2,17 @@ package racingcar.domain.car;
 
 import racingcar.exception.ExceptionMessage;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Name {
+public record Name(String value) {
 
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
     private static final Pattern FORMAT_PATTERN = Pattern.compile("^[a-zA-Z가-힣]*$");
 
-    private final String value;
-
-    public Name(String value) {
+    public Name {
         validate(value);
-        this.value = value;
     }
 
     private void validate(String value) {
@@ -42,23 +38,5 @@ public class Name {
         if (!matcher.matches()) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_WRONG_FORMAT.getMessage());
         }
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public final boolean equals(final Object o) {
-        if (!(o instanceof final Name name)) {
-            return false;
-        }
-
-        return Objects.equals(getValue(), name.getValue());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getValue());
     }
 }

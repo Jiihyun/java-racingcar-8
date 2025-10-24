@@ -15,7 +15,7 @@ class NameTest {
         // when
         Name result = new Name(name);
         // then
-        assertThat(result.getValue()).isEqualTo(name);
+        assertThat(result.value()).isEqualTo(name);
     }
 
     @ParameterizedTest
