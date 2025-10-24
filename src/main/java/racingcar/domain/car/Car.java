@@ -1,15 +1,25 @@
 package racingcar.domain.car;
 
+import racingcar.domain.MovementResult;
+import racingcar.domain.MovementStrategy;
+
 import java.util.Objects;
 
 public class Car {
 
     private final Name name;
-    private final int position;
+    private int position;
 
-    public Car(Name name, int position) {
-        this.name = name;
-        this.position = position;
+    public Car(String name) {
+        this.name = new Name(name);
+        this.position = 0;
+    }
+
+    public MovementResult move(MovementStrategy movementStrategy) {
+        if (movementStrategy.canMove()) {
+            this.position += 1;
+        }
+        return new MovementResult(name.getValue(), position);
     }
 
     @Override

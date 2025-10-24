@@ -44,4 +44,10 @@ public class Cars {
                 .distinct()
                 .count() != cars.size();
     }
+
+    public List<MovementResult> move(MovementStrategy movementStrategy) {
+        return cars.stream()
+                .map(car -> car.move(movementStrategy))
+                .toList();
+    }
 }
