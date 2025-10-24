@@ -2,9 +2,8 @@ package racingcar.controller;
 
 import racingcar.Parser;
 import racingcar.domain.Cars;
-import racingcar.domain.ForwordMovementCondition;
-import racingcar.domain.MovementResult;
-import racingcar.domain.RandomMovementStrategy;
+import racingcar.domain.Race;
+import racingcar.domain.RaceHistory;
 import racingcar.domain.Referee;
 import racingcar.domain.Round;
 import racingcar.domain.Winners;
@@ -46,12 +45,9 @@ public class RaceController {
     }
 
     private void startRace(Round round, Cars cars) {
-        outputView.printResultMessage();
-        while (round.isLeft()) {
-            List<MovementResult> result = cars.move(new RandomMovementStrategy(new ForwordMovementCondition()));
-            round.finish();
-            outputView.printResult(result);
-        }
+        Race race = new Race(cars, round);
+        RaceHistory raceHistory = race.start();
+        outputView.printResult(raceHistory.history());
     }
 
     private void judge(Cars cars) {

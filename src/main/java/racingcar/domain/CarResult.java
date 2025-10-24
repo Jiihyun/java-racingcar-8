@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public record MovementResult(
+public record CarResult(
         String name,
         int position
 ) {

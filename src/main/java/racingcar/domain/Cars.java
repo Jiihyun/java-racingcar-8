@@ -45,10 +45,11 @@ public class Cars {
                 .count() != cars.size();
     }
 
-    public List<MovementResult> move(MovementStrategy movementStrategy) {
-        return cars.stream()
+    public RoundResult move(MovementStrategy movementStrategy) {
+        List<CarResult> roundResult = cars.stream()
                 .map(car -> car.move(movementStrategy))
                 .toList();
+        return new RoundResult(roundResult);
     }
 
     public int getMaxPosition() {

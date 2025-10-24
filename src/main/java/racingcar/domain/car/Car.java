@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import racingcar.domain.MovementResult;
+import racingcar.domain.CarResult;
 import racingcar.domain.MovementStrategy;
 
 import java.util.Objects;
@@ -15,11 +15,11 @@ public class Car {
         this.position = 0;
     }
 
-    public MovementResult move(MovementStrategy movementStrategy) {
+    public CarResult move(MovementStrategy movementStrategy) {
         if (movementStrategy.canMove()) {
             this.position += 1;
         }
-        return new MovementResult(name.getValue(), position);
+        return new CarResult(name.getValue(), position);
     }
 
     public boolean hasSamePositionWith(int position) {
