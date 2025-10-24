@@ -5,7 +5,9 @@ import racingcar.domain.Cars;
 import racingcar.domain.ForwordMovementCondition;
 import racingcar.domain.MovementResult;
 import racingcar.domain.RandomMovementStrategy;
+import racingcar.domain.Referee;
 import racingcar.domain.Round;
+import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -32,6 +34,9 @@ public class RaceController {
             round.finish();
             outputView.printResult(result);
         }
+
+        Referee referee = new Referee();
+        Winners winners = referee.judge(cars);
     }
 
     private Cars registerCars() {

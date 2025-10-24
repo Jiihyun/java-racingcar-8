@@ -22,6 +22,18 @@ public class Car {
         return new MovementResult(name.getValue(), position);
     }
 
+    public boolean hasSamePositionWith(int position) {
+        return this.position == position;
+    }
+
+    public String getName() {
+        return name.getValue();
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public final boolean equals(final Object o) {
         if (!(o instanceof final Car car)) {

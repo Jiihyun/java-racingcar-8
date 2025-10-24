@@ -50,4 +50,18 @@ public class Cars {
                 .map(car -> car.move(movementStrategy))
                 .toList();
     }
+
+    public int getMaxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+        return max;
+    }
+
+    public List<Car> findAllLocatedAt(int position) {
+        return cars.stream()
+                .filter(car -> car.hasSamePositionWith(position))
+                .toList();
+    }
 }
