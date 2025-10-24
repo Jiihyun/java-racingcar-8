@@ -37,6 +37,7 @@ public class RaceController {
 
         Referee referee = new Referee();
         Winners winners = referee.judge(cars);
+        outputView.printWinner(winners);
     }
 
     private Cars registerCars() {
