@@ -2,8 +2,10 @@ package racingcar.controller;
 
 import racingcar.Parser;
 import racingcar.domain.Cars;
+import racingcar.domain.ForwordMovementCondition;
 import racingcar.domain.Race;
 import racingcar.domain.RaceHistory;
+import racingcar.domain.RandomMovementStrategy;
 import racingcar.domain.Referee;
 import racingcar.domain.Round;
 import racingcar.domain.Winners;
@@ -45,7 +47,8 @@ public class RaceController {
     }
 
     private void startRace(Round round, Cars cars) {
-        Race race = new Race(cars, round);
+        RandomMovementStrategy movementStrategy = new RandomMovementStrategy(new ForwordMovementCondition());
+        Race race = new Race(cars, round, movementStrategy);
         RaceHistory raceHistory = race.start();
         outputView.printResult(raceHistory.history());
     }

@@ -15,7 +15,7 @@ class RoundTest {
         // when
         Round round = new Round(valueOfRound);
         // then
-        assertThat(round.getValue()).isEqualTo(valueOfRound);
+        assertThat(round.value()).isEqualTo(valueOfRound);
 
     }
 

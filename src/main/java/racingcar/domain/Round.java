@@ -2,16 +2,16 @@ package racingcar.domain;
 
 import racingcar.exception.ExceptionMessage;
 
-public class Round {
+import java.util.Optional;
 
+public record Round(
+        int value
+) {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 25;
 
-    private int value;
-
-    public Round(int value) {
+    public Round {
         validate(value);
-        this.value = value;
     }
 
     private void validate(int value) {
@@ -24,15 +24,14 @@ public class Round {
         return value < MIN_RANGE || value > MAX_RANGE;
     }
 
-    public boolean isLeft() {
-        return value >= MIN_RANGE;
+    public Optional<Round> decrease() {
+        if (isFinalRound()) {
+            return Optional.empty();
+        }
+        return Optional.of(new Round(value - 1));
     }
 
-    public void finish() {
-        value -= 1;
-    }
-
-    public int getValue() {
-        return value;
+    private boolean isFinalRound() {
+        return value == MIN_RANGE;
     }
 }
