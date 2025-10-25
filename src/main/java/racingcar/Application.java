@@ -1,6 +1,5 @@
 package racingcar;
 
-import racingcar.controller.RaceController;
 import racingcar.domain.movementcondition.ForwordMovementCondition;
 import racingcar.domain.movementcondition.MovementCondition;
 import racingcar.numbergenerator.NumberGenerator;
@@ -14,7 +13,7 @@ public class Application {
         OutputView outputView = new OutputView();
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         MovementCondition movementCondition = new ForwordMovementCondition();
-        RaceController raceController = new RaceController(inputView, outputView, numberGenerator, movementCondition);
-        raceController.run();
+        RacingGame racingGame = new RacingGame(inputView, outputView, numberGenerator, movementCondition);
+        racingGame.run();
     }
 }

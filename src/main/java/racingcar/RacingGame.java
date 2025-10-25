@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
@@ -15,7 +15,7 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-public class RaceController {
+public class RacingGame {
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -23,8 +23,8 @@ public class RaceController {
     private final NumberGenerator numberGenerator;
     private final MovementCondition movementCondition;
 
-    public RaceController(InputView inputView, OutputView outputView,
-                          NumberGenerator numberGenerator, MovementCondition movementCondition) {
+    public RacingGame(InputView inputView, OutputView outputView,
+                      NumberGenerator numberGenerator, MovementCondition movementCondition) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.numberGenerator = numberGenerator;
