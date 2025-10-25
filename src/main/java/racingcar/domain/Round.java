@@ -4,9 +4,8 @@ import racingcar.exception.ExceptionMessage;
 
 import java.util.Optional;
 
-public record Round(
-        int value
-) {
+public record Round(int value) {
+    
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 25;
 
