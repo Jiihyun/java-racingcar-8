@@ -9,7 +9,7 @@ public record Name(String value) {
 
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
-    private static final Pattern FORMAT_PATTERN = Pattern.compile("^[a-zA-Z가-힣]*$");
+    private static final Pattern FORMAT_PATTERN = Pattern.compile("^[a-zA-Z가-힣]+$");
 
     public Name {
         validate(value);
