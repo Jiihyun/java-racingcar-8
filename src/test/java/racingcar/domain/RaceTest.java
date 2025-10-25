@@ -3,6 +3,9 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
+import racingcar.domain.movementcondition.ForwordMovementCondition;
+import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.numbergenerator.FixedNumberGenerator;
 
 import java.util.List;
 

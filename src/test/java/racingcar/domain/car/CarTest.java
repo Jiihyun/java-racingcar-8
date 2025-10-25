@@ -3,9 +3,9 @@ package racingcar.domain.car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarResult;
-import racingcar.domain.FixedNumberGenerator;
-import racingcar.domain.ForwordMovementCondition;
-import racingcar.domain.MovementCondition;
+import racingcar.domain.movementcondition.ForwordMovementCondition;
+import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.numbergenerator.FixedNumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

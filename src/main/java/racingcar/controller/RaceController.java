@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import racingcar.Parser;
 import racingcar.domain.Cars;
-import racingcar.domain.MovementCondition;
-import racingcar.domain.NumberGenerator;
 import racingcar.domain.Race;
 import racingcar.domain.RaceHistory;
 import racingcar.domain.Referee;
 import racingcar.domain.Round;
 import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
+import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.numbergenerator.NumberGenerator;
+import racingcar.util.Parser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

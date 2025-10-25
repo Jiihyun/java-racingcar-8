@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.movementcondition;
 
 public class ForwordMovementCondition implements MovementCondition {
 

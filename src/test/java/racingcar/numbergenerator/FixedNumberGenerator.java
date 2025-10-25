@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.numbergenerator;
 
 public class FixedNumberGenerator implements NumberGenerator {
 

@@ -1,10 +1,10 @@
 package racingcar;
 
 import racingcar.controller.RaceController;
-import racingcar.domain.ForwordMovementCondition;
-import racingcar.domain.MovementCondition;
-import racingcar.domain.NumberGenerator;
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.movementcondition.ForwordMovementCondition;
+import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.numbergenerator.NumberGenerator;
+import racingcar.numbergenerator.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
