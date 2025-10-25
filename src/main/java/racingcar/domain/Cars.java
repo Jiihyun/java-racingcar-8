@@ -14,7 +14,7 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         validate(cars);
-        this.cars = cars;
+        this.cars = List.copyOf(cars);
     }
 
     private void validate(List<Car> cars) {
