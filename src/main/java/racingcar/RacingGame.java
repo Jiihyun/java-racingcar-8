@@ -9,7 +9,6 @@ import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
 import racingcar.domain.movementcondition.MovementCondition;
 import racingcar.numbergenerator.NumberGenerator;
-import racingcar.util.Parser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -39,9 +38,8 @@ public class RacingGame {
     }
 
     private Cars registerCars() {
-        String carNames = inputView.readCarNames();
-        List<String> names = Parser.parseByDelimiter(carNames);
-        List<Car> cars = names.stream()
+        List<String> carNames = inputView.readCarNames();
+        List<Car> cars = carNames.stream()
                 .map(name -> new Car(numberGenerator, movementCondition, name))
                 .toList();
         return new Cars(cars);

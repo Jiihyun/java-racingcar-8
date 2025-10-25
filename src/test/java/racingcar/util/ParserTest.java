@@ -13,8 +13,9 @@ class ParserTest {
     void 구분자를_기준으로_문자열을_분리한다() {
         // given
         String expression = "a,b,c";
+        String delimiter = ",";
         // when
-        List<String> parsedExpression = Parser.parseByDelimiter(expression);
+        List<String> parsedExpression = Parser.parseByDelimiter(expression, delimiter);
         // then
         assertAll(
                 () -> assertThat(parsedExpression).hasSize(3),
@@ -23,4 +24,13 @@ class ParserTest {
         );
     }
 
+    @Test
+    void 문자_형식의_숫자를_파싱한다() {
+        // given
+        String number = "3";
+        // when
+        int result = Parser.parseToInt(number);
+        // then
+        assertThat(result).isEqualTo(3);
+    }
 }
