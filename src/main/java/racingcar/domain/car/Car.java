@@ -1,23 +1,31 @@
 package racingcar.domain.car;
 
 import racingcar.domain.CarResult;
-import racingcar.domain.MovementStrategy;
+import racingcar.domain.MovementCondition;
+import racingcar.domain.NumberGenerator;
 
 import java.util.Objects;
 
 public class Car {
 
+    private static final int START_POSITION = 0;
+
+    private final NumberGenerator numberGenerator;
+    private final MovementCondition movementCondition;
     private final Name name;
     private int position;
 
-    public Car(String name) {
+    public Car(NumberGenerator numberGenerator, MovementCondition movementCondition, String name) {
+        this.numberGenerator = numberGenerator;
+        this.movementCondition = movementCondition;
         this.name = new Name(name);
-        this.position = 0;
+        this.position = START_POSITION;
     }
 
-    public CarResult move(MovementStrategy movementStrategy) {
-        if (movementStrategy.canMove()) {
-            this.position += 1;
+    public CarResult move() {
+        int number = numberGenerator.generate();
+        if (movementCondition.isSatisfiedBy(number)) {
+            this.position++;
         }
         return new CarResult(name.value(), position);
     }

@@ -2,10 +2,10 @@ package racingcar.controller;
 
 import racingcar.Parser;
 import racingcar.domain.Cars;
-import racingcar.domain.ForwordMovementCondition;
+import racingcar.domain.MovementCondition;
+import racingcar.domain.NumberGenerator;
 import racingcar.domain.Race;
 import racingcar.domain.RaceHistory;
-import racingcar.domain.RandomMovementStrategy;
 import racingcar.domain.Referee;
 import racingcar.domain.Round;
 import racingcar.domain.Winners;
@@ -20,9 +20,15 @@ public class RaceController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RaceController(InputView inputView, OutputView outputView) {
+    private final NumberGenerator numberGenerator;
+    private final MovementCondition movementCondition;
+
+    public RaceController(InputView inputView, OutputView outputView,
+                          NumberGenerator numberGenerator, MovementCondition movementCondition) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.numberGenerator = numberGenerator;
+        this.movementCondition = movementCondition;
     }
 
     public void run() {
@@ -36,7 +42,7 @@ public class RaceController {
         String carNames = inputView.readCarNames();
         List<String> names = Parser.parseByDelimiter(carNames);
         List<Car> cars = names.stream()
-                .map(Car::new)
+                .map(name -> new Car(numberGenerator, movementCondition, name))
                 .toList();
         return new Cars(cars);
     }
@@ -47,8 +53,7 @@ public class RaceController {
     }
 
     private void startRace(Round round, Cars cars) {
-        RandomMovementStrategy movementStrategy = new RandomMovementStrategy(new ForwordMovementCondition());
-        Race race = new Race(cars, round, movementStrategy);
+        Race race = new Race(cars, round);
         RaceHistory raceHistory = race.start();
         outputView.printResult(raceHistory.history());
     }

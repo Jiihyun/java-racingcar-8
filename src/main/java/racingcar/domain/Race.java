@@ -8,12 +8,10 @@ public class Race {
 
     private final Cars cars;
     private final Round round;
-    private final MovementStrategy movementStrategy;
 
-    public Race(Cars cars, Round round, MovementStrategy movementStrategy) {
+    public Race(Cars cars, Round round) {
         this.cars = cars;
         this.round = round;
-        this.movementStrategy = movementStrategy;
     }
 
     public RaceHistory start() {
@@ -30,7 +28,7 @@ public class Race {
     }
 
     private Optional<Round> playOneRound(List<RoundResult> raceHistory, Round currentRound) {
-        RoundResult result = cars.move(movementStrategy);
+        RoundResult result = cars.move();
         raceHistory.add(result);
         return currentRound.decrease();
     }

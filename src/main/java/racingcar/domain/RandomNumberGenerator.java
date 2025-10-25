@@ -2,15 +2,13 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomNumberGenerator {
+public class RandomNumberGenerator implements NumberGenerator {
 
     private static final int START_INCLUSIVE = 1;
     private static final int END_INCLUSIVE = 9;
-
-    private RandomNumberGenerator() {
-    }
-
-    public static int pickNumber() {
+    
+    @Override
+    public int generate() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 }

@@ -45,9 +45,9 @@ public class Cars {
                 .count() != cars.size();
     }
 
-    public RoundResult move(MovementStrategy movementStrategy) {
+    public RoundResult move() {
         List<CarResult> roundResult = cars.stream()
-                .map(car -> car.move(movementStrategy))
+                .map(Car::move)
                 .toList();
         return new RoundResult(roundResult);
     }
@@ -62,9 +62,9 @@ public class Cars {
         return fastestCar;
     }
 
-    public List<Car> findAllTiedWith(Car fastestCar) {
+    public List<Car> findAllTiedWith(Car otherCar) {
         return cars.stream()
-                .filter(car -> car.hasSamePositionWith(fastestCar))
+                .filter(car -> car.hasSamePositionWith(otherCar))
                 .toList();
     }
 }
