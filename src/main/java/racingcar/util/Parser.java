@@ -5,7 +5,7 @@ import racingcar.exception.ExceptionMessage;
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser {
+public final class Parser {
 
     private Parser() {
     }
