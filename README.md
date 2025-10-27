@@ -94,29 +94,28 @@ ll : -
 
 ## 📦 패키지 구조
 
-| Package                 | Class                      | Description                        |
-|:------------------------|:---------------------------|:-----------------------------------|
-| ▶️ root                 | `Application`              | 프로그램의 진입점(Main 클래스)                |
-|                         | `RacingGame`               | 자동차 경주 게임의 실행을 담당하는 핵심 클래스         |
-| 💾 domain               | `CarResult`                | 한 라운드에서 각 자동차의 결과를 저장하는 클래스        |
-|                         | `Cars`                     | 경주에 참여하는 자동차들의 집합을 관리하는 클래스        |
-|                         | `Race`                     | 전체 레이스를 진행하는 클래스                   |
-|                         | `RaceHistory`              | 각 라운드별 결과를 누적하여 저장하는 클래스           |
-|                         | `Referee`                  | 레이스의 우승자를 판정하는 클래스                 |
-|                         | `Round`                    | 한 번의 시도(라운드)를 표현하는 클래스             |
-|                         | `RoundResult`              | 라운드의 결과를 저장하는 클래스                  |
-|                         | `Winners`                  | 우승자 목록을 관리하는 클래스                   |
-|                         | `Car`                      | 자동차의 이동 로직 및 상태를 관리하는 클래스          |
-|                         | `Name`                     | 자동차의 이름을 표현하고 검증하는 클래스             |
-|                         | `MovementCondition`        | 자동차의 이동 조건을 정의하는 인터페이스             |
-|                         | `ForwordMovementCondition` | 자동차의 전진 조건을 정의하는 구현 클래스            |
-| 🚨 exception            | `ExceptionMessage`         | 예외 상황에서 사용할 메시지를 관리하는 클래스          |
-| 🔢 numbergenerator      | `NumberGenerator`          | 난수 생성 전략을 정의하는 인터페이스               |
-|                         | `RandomNumberGenerator`    | 랜덤 값을 반환하는 구현 클래스                  |
-| 🧪 test.numbergenerator | `FixedNumberGenerator`     | 테스트에서 고정된 숫자를 반환하는 테스트용 구현 클래스     |
-| 🧩 util                 | `Parser`                   | 문자열 입력을 파싱하여 필요한 형태로 변환하는 유틸리티 클래스 |
-| 💬 view                 | `InputView`                | 자동차 이름 및 시도 횟수 입력을 처리하는 클래스        |
-|                         | `OutputView`               | 경주 실행 결과 및 우승자를 출력하는 클래스           |
+| Package                | Class                      | Description                 |
+|:-----------------------|:---------------------------|:----------------------------|
+| ▶️ **root**            | `Application`              | 프로그램의 진입점 (Main 클래스)        |
+|                        | `RacingGame`               | 자동차 경주 게임 실행을 담당하는 핵심 클래스   |
+| 💾 **domain**          | `Cars`                     | 경주에 참여하는 자동차들의 집합을 관리하는 클래스 |
+|                        | `Race`                     | 전체 레이스를 진행하는 클래스            |
+|                        | `Referee`                  | 레이스의 우승자를 판정하는 클래스          |
+|                        | `Round`                    | 한 번의 시도(라운드)를 표현하는 클래스      |
+|                        | `Car`                      | 자동차의 이동 로직 및 상태를 관리하는 클래스   |
+|                        | `Name`                     | 자동차의 이름을 표현하고 검증하는 클래스      |
+|                        | `MovementCondition`        | 자동차의 이동 조건을 정의하는 인터페이스      |
+|                        | `ForwordMovementCondition` | 자동차의 전진 조건을 정의하는 구현 클래스     |
+| 📦 **dto**             | `CarResult`                | 한 라운드에서 각 자동차의 결과를 저장       |
+|                        | `RoundResult`              | 라운드별 결과를 저장                 |
+|                        | `RaceHistory`              | 전체 레이스의 라운드 결과를 누적 저장       |
+|                        | `Winners`                  | 최종 우승자 목록을 관리               |
+| 🚨 **exception**       | `ExceptionMessage`         | 예외 상황 메시지를 관리               |
+| 🔢 **numbergenerator** | `NumberGenerator`          | 난수 생성 전략을 정의하는 인터페이스        |
+|                        | `RandomNumberGenerator`    | 랜덤 값을 반환하는 구현 클래스           |
+| 🧩 **util**            | `Parser`                   | 문자열 입력을 파싱하여 필요한 형태로 변환     |
+| 💬 **view**            | `InputView`                | 사용자 입력(이름, 시도 횟수)을 처리       |
+|                        | `OutputView`               | 경주 결과 및 우승자 출력              |
 
 ---
 
