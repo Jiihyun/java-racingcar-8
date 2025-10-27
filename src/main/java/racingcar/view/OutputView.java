@@ -1,8 +1,8 @@
 package racingcar.view;
 
-import racingcar.domain.CarResult;
-import racingcar.domain.RoundResult;
-import racingcar.domain.Winners;
+import racingcar.dto.CarResult;
+import racingcar.dto.RoundResult;
+import racingcar.dto.Winners;
 
 import java.util.List;
 

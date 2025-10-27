@@ -2,12 +2,12 @@ package racingcar;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
-import racingcar.domain.RaceHistory;
 import racingcar.domain.Referee;
 import racingcar.domain.Round;
-import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
 import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.dto.RaceHistory;
+import racingcar.dto.Winners;
 import racingcar.numbergenerator.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

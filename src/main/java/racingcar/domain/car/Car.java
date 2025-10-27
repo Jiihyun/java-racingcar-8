@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import racingcar.domain.CarResult;
 import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.dto.CarResult;
 import racingcar.numbergenerator.NumberGenerator;
 
 import java.util.Objects;

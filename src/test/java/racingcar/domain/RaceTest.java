@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.movementcondition.ForwordMovementCondition;
 import racingcar.domain.movementcondition.MovementCondition;
+import racingcar.dto.CarResult;
+import racingcar.dto.RaceHistory;
 import racingcar.numbergenerator.FixedNumberGenerator;
 
 import java.util.List;

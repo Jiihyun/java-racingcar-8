@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import racingcar.dto.RaceHistory;
+import racingcar.dto.RoundResult;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.dto;
 
 public record CarResult(
         String name,

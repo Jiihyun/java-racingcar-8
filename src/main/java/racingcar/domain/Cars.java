@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import racingcar.domain.car.Car;
+import racingcar.dto.CarResult;
+import racingcar.dto.RoundResult;
 import racingcar.exception.ExceptionMessage;
 
 import java.util.List;
